@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: rgb(48, 38, 102);
+  color: aliceblue;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+  &__navBar{
+    display: flex;
+    flex-direction: row;
+
+    .cart{
+      margin-left: 1rem;
+      align-items: center;
+      color: aliceblue;
+
+      .cart-count{
+        background-color: rgb(223, 77, 77);
+        padding: 2px 6px;
+        font-size: 0.6rem;
+        border-radius: 100%;
+        position: relative;
+        left: -10px;
+      }
+    }
+  }
+
+  &__link{
+    margin-left: 1rem;
+    text-decoration: none;
+    color: aliceblue;
+  }
+}
+
+main {
+  flex-grow: 1;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+footer{
+  background-color: rgb(48, 38, 102);
+  color: aliceblue;
+  padding: 1rem 0.5 rem;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  text-align: center;
+}
