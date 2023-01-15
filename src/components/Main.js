@@ -1,14 +1,21 @@
 import {Button} from "react-bootstrap";
-import ItemListContainer from "./ItemListContainer";
+import NewItemList from "./NewItemList";
+import { Routes, Route } from "react-router-dom";
+import ItemListContainer from "./ItemListContainer"
+import ItemDetailContainer from "./ItemDetailContainer";
+import Carrito from "./carrito";
 
 const Main = () => {
     return(
         <main>
-            <h2>Estamos construyendo algo genial</h2>
-            <ItemListContainer greeting="¡Regresa Pronto!"/>
-            <Button>Aceptar</Button>
-            {/* colocar imagen dentro de la carpeta public */}
-            {/* <img src="/img/imagen.png"/>  */}
+            <Routes>
+                <Route path="/" element={<NewItemList/>}></Route>
+                <Route path="/category/:categoryid" element={<NewItemList/>}></Route>
+                <Route path="/category/:categoryid" element={<NewItemList/>}></Route>
+                <Route path="/category/:categoryid" element={<NewItemList/>}></Route>
+                <Route path="/carrito" element={<Carrito/>}></Route>
+                <Route path="/item/:id" element={<ItemDetailContainer/>}></Route>
+            </Routes>
         </main>
     )
 }

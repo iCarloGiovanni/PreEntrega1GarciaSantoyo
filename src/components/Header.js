@@ -1,9 +1,10 @@
 import NavBar from "./NavBar";
+import { Link } from "react-router-dom";
 
 const Header =() => {
     return(
         <header className="header">
-            <h1 className="header__title">@Carlo.Giovanni</h1>
+            <Link className="header__title" to={`/`}> My Fake Store </Link>
             <NavBar isHeader={true}/>
         </header>
     )
