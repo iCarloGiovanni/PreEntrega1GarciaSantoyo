@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 const ItemList = ({ productos }) => {
 
     const params = useParams()
-    console.log(params.categoryid)
 
     const electronicos = productos.filter((prod)=>
         prod.category.includes('electronics'))
@@ -15,7 +14,7 @@ const ItemList = ({ productos }) => {
     const ropa = productos.filter((prod)=>
         prod.category.includes('clothing'))
 
-    if(params.categoryid == "electronicos"){
+    if(params.categoryid === "electronicos"){
         return(
             <div className="itemList">
                 {electronicos.map((producto)=>{
@@ -25,7 +24,7 @@ const ItemList = ({ productos }) => {
                 })}
             </div> 
         )
-    }else if(params.categoryid == "joyeria"){
+    }else if(params.categoryid === "joyeria"){
         return(
             <div className="itemList">
                 {joyeria.map((producto)=>{
@@ -35,7 +34,7 @@ const ItemList = ({ productos }) => {
                 })}
             </div> 
         )    
-    }else if(params.categoryid == "ropa"){
+    }else if(params.categoryid === "ropa"){
         return(
             <div className="itemList">
                 {ropa.map((producto)=>{

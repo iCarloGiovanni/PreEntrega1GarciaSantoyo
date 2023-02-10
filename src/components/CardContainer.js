@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import ItemDetail from "./ItemDetail";
+import Card from "./Card";
+import { useState, useEffect } from "react";
+import { useCarrito } from "./CustomProvider";
 
-const ItemDetailContainer = ( ) => {
+const CardContainer = () => {
 
     const [enEspera, setenEspera] = useState(true)
     const [productos, setProductos] = useState([])
+
+    const { carrito } = useCarrito()
 
     useEffect(()=>{
 
@@ -28,17 +30,18 @@ const ItemDetailContainer = ( ) => {
 
     },[])
 
-    const params = useParams()
-    //con esto se obtiene el ID del producto. Params es para usar los parametros del link donde estamos
-    const productID = params.id - 1;
-
-    return ( 
+    return (
         <div>
             { enEspera ? 'Cargando...' :
-            <ItemDetail productID = {productID} productos = {productos}/>
-            }
+            <div>
+            {carrito.map((producto)=>{
+                return(
+                    <Card producto={producto} key={producto.id}/>
+                )
+            })}
+            </div>}
         </div>
-    );
+     );
 }
  
-export default ItemDetailContainer;
+export default CardContainer;

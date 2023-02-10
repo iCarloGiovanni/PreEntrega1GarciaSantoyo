@@ -18,6 +18,32 @@ html, body, #root {
   flex-direction: column;
 }
 
+h1{
+  margin: 2rem 4rem;
+  font-size: 2.4rem;
+  color: rgb(64, 64, 64);
+}
+
+h5{
+  background-color: rgb(64, 56, 109);
+  padding: 1.5rem;
+  color: aliceblue;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+}
+
+button{
+  background-color: aliceblue;
+  padding: 0.4rem;
+  background-color: rgb(115, 109, 146);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  margin: 1rem 1rem;
+  min-width: 120px;
+}
+
 .header {
   background-color: rgb(48, 38, 102);
   color: aliceblue;
@@ -74,7 +100,7 @@ main {
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content:space-around ;
   align-items: center;
   gap: 3rem;
 }
@@ -149,14 +175,119 @@ footer{
     gap: 2rem;
     margin-top: 3rem;
 
-    button{
-      width: 20%;
-      padding: 0.4rem;
-      min-width: 100px;
-      background-color: rgb(115, 109, 146);
-      color: white;
-      border: none;
-      border-radius: 0.5rem;
+    .countButton{
+      width: 10%;
+      min-width: 50px;
     }
+
+    .actionButton{
+      width: 30%;
+      min-width: 300px;
+      margin-right: 1rem;
+    }
+
+    p{
+      display: inline;
+      margin: 0 1rem;
+    }
+
+  }
+}
+
+.card{
+  
+  h2{
+    color: rgb(87, 82, 120);
+  }
+
+  display: flex;
+  margin: 1rem 4rem;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 1rem;
+
+  img{
+    height: 100px;
+    width: 100px;
+    margin: 1rem 2rem;
+    min-width: 100px;
+  }
+
+  &__Description{
+    margin: 1rem 2rem;
+    
+    p{
+      margin: 1rem 0;
+      color: rgb(53, 53, 53);
+    }
+
+    .prodDesc{
+      color: rgb(125, 121, 135);
+    }
+  }
+
+  &__Details{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 2rem 2rem 4rem;
+    justify-content: space-between ;
+
+    h3{
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.formulario{
+  background-color: rgb(64, 56, 109);
+  display: flex;
+  margin: 1rem 4rem;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 1rem;
+  color: aliceblue;
+  justify-content: space-between;
+  min-width: 80%;
+
+  form{
+    display: flex ;
+    margin: 2rem 2rem;
+    flex-direction: column;
+    min-width: 60% ;
+    
+    input{
+      margin-bottom: 1rem;
+      margin-top: 0.5rem;
+      height: 2rem;
+      border-radius: 4px;
+      border: 0;
+    }
+  }
+
+  .totalPedido{
+    align-self: center;
+    margin: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+
+    h2{
+      font-size: 2rem;
+    }
+    h3{
+      font-size: 3rem;
+      margin: 2rem 0;
+    }
+  }
+}
+
+.checkout{
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+
+  p{
+    align-self: center;
   }
 }

@@ -5,6 +5,7 @@ const NavBar = (props) => {
 
     const {isHeader, textLinkFooter, hrefLinkFooter} = props;
 
+
     if(isHeader){
         return(
             <nav className="header__navBar">

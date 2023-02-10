@@ -1,22 +1,25 @@
+import CardContainer from "./CardContainer"
+import { useCarrito } from "./CustomProvider";
+import FormContainer from "./FormContainer"
+
 const Carrito = () => {
 
-    const handleClick = (e) => {
+    const {carrito} = useCarrito()
 
-        //e son todos los detalles del evento
-        //e.target es el elemento original que dispara el evento (en este caso seria el boton)
-        console.log(e)
-        console.log(e.target)
+    if(carrito.length > 0){
+        return ( 
+            <div>
+                <h1> Tu carrito </h1>
+                <CardContainer/>
+                <FormContainer/>
+            </div>
+        );
+    }else{
+        return(
+            <FormContainer/>
+        )
     }
-
-    const handleChange = (e) => {
-        console.log(e)
-    }
-
-    return ( 
-        <div>
-            <input type="text" onChange={handleChange} />
-            <button onClick={handleClick}>Terminar Compra</button>
-        </div> );
+    
 }
- 
+
 export default Carrito;

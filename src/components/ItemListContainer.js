@@ -1,4 +1,8 @@
 import { useEffect, useState } from "react";
+//import { db } from "../firebase"
+import { collection, query } from "firebase/firestore"
+import { toast } from "react-toastify";
+//productos es el nombre de la coleccion que hay en mi base, a la que quiero ingresar
 
 const ItemListContainer = (props) => {
 
@@ -7,34 +11,61 @@ const ItemListContainer = (props) => {
 
     useEffect(()=>{
 
-        console.log("Pidiendo algo a la base de datos")
+        toast.info("cargando productos...")
 
-        setTimeout(()=>{
+        //const productosCollection = collection(db, "productos") //CollectionReference/Query
+        const referencia = doc(productosCollection, "ponerAquiMiId")
+        const pedido = getDoc(referencia)
+        console.log("Pidiendo algo a la base de datos") //quitar console logs
 
-            console.log("Termino la solicitud a la base de datos")
+        //getDocs(Query)
+        //query(Query, Constraint)
+        //where(propiedad, operador, valor)
 
-            const copiaProductos = productos.slice(0)
+        const filtro = query(productosCollection, where("category","==","clothing"))
+        const pedidoFirestore = getDocs(filtro)
 
-            const newProductos = [
-                {id: 2, nombre: "Sudadera", precio: 400},
-                {id: 3, nombre: "Sueter", precio: 300},
-                {id: 4, nombre: "Taza", precio: 100},
-                {id: 5, nombre: "Gorra", precio: 150}
-            ]
+        //aqui me quede, el pedido.then sera diferente
 
-            newProductos.forEach(prod=>{
-                copiaProductos.push(prod)
+        pedidoFirestore
+            .then((respuesta) => {
+                const productos = respuesta.docs.map(doc => ({ ...doc.data(), id: doc.id }))
+                setProductos(productos)
+                setenEspera(false)
+                toast.dismiss()
+                toast.success("productos cargados!")
+            })
+            .catch((error)=> {
+                toast.error("Hubo un error, vuelve a intentarlo" + error.message)
             })
 
-            setProductos(copiaProductos)
-            setenEspera(false)
+        // setTimeout(()=>{
 
-        }, 5000)
+        //     console.log("Termino la solicitud a la base de datos")
+
+        //     const copiaProductos = productos.slice(0)
+
+        //     const newProductos = [
+        //         {id: 2, nombre: "Sudadera", precio: 400},
+        //         {id: 3, nombre: "Sueter", precio: 300},
+        //         {id: 4, nombre: "Taza", precio: 100},
+        //         {id: 5, nombre: "Gorra", precio: 150}
+        //     ]
+
+        //     newProductos.forEach(prod=>{
+        //         copiaProductos.push(prod)
+        //     })
+
+        //     setProductos(copiaProductos)
+        //     setenEspera(false)
+
+        // }, 5000)
     },[])
 
     return(
         <div>
-            {enEspera ? "Espere 5 segundos..." : "Listo!"}
+            {/* {enEspera ? "Espere 5 segundos..." : "Listo!"} */}
+            {enEspera ? "Cargando..." : null}
         </div>
     )
 }
