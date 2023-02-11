@@ -6,10 +6,10 @@ const FormContainer = () => {
 
     const { emptyCart, carrito, precioTotal, setUser } = useCarrito()
 
-    const [nombre, setNombre] = useState("")
-    const [email, setEmail] = useState("")
-    const [telefono, setTelefono] = useState("")
-    const [direccion, setDireccion] = useState("")
+    const [nombre, setNombre] = useState("Nombre Apellido")
+    const [email, setEmail] = useState("usario@mail.com")
+    const [telefono, setTelefono] = useState("0192837465")
+    const [direccion, setDireccion] = useState("Calle St #3312, col. colonia, CP: 10100")
 
     const handleClick = (e) => {
 

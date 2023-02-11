@@ -1,12 +1,7 @@
-import { useState, useEffect } from "react";
 import {useCarrito} from "./CustomProvider";
 import CardContainer from "./CardContainer"
 
 const Checkout = () => {
-
-        const [enEspera, setenEspera] = useState(true)
-        const [productos, setProductos] = useState([])
-    
         const { user, precioTotal } = useCarrito()
     
 

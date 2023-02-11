@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useCarrito } from "./CustomProvider";
 
 function Card(props){
@@ -12,7 +13,9 @@ function Card(props){
 
     return (
         <article id="card" className="card">
-            <img src={producto.image}></img>
+            <Link to={`/item/${producto.id}`}>
+                <img src={producto.image}></img>
+            </Link>
             <div className="card__Description">
                 <h2>{producto.title}</h2>
                 <p> Cantidad: {producto.cantidad}  -  ${producto.price} </p>
